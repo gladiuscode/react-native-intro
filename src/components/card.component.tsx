@@ -3,18 +3,20 @@ import {Text, View, TouchableOpacity, GestureResponderEvent} from "react-native"
 
 type Props = PropsWithChildren<{
   id: string,
-  onPress: (id: string) => void,
+  onCardPress: (id: string) => void,
   label: string;
 }>
 
-const Card: React.FC<Props> = ({ id, label, onPress }) => {
+const Card: React.FC<Props> = ({ id, label, onCardPress }) => {
 
-  const onLocalPress = () => {
-    onPress(id);
+  console.log('render card');
+
+  const onPress = () => {
+    onCardPress(id);
   }
 
   return (<TouchableOpacity
-    onPress={onLocalPress}
+    onPress={onPress}
   >
     <Text>{label}</Text>
   </TouchableOpacity>);
