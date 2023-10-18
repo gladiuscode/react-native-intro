@@ -1,20 +1,46 @@
-import React, {useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 import { StyleSheet, View, Text } from 'react-native';
 import Card from "./src/components/card.component";
 import Title from "./src/components/title.component";
 
+export const [counter, setCounter] = useState(0);
+
+
 export default function App() {
-  const [counter, setCounter] = useState(0);
 
   console.log('render');
 
+  // let titleInfo = {};
+  // if (counter === 1) {
+  //   titleInfo = {
+  //     label: 'Ciao mamma'
+  //   }
+  // } else {
+  //   titleInfo = {
+  //     label: 'Ciao papà'
+  //   }
+  // }
+
   // useMemo
-  const titleInfo = {
-    label: 'Awesome counter di title info'
-  }
+  const titleInfo = useMemo(() => {
+    console.log('render titleInfo')
+
+    if (counter === 1) {
+      return {
+        label: 'Ciao mamma'
+      }
+    }
+    return {
+      label: 'Ciao papà'
+    }
+
+    // return {
+    //   label: 'Awesome counter di title info'
+    // }
+  }, [counter]);
 
   // useCallback
-  const onCounterPress = (id: string) => {
+  const onCounterPress = useCallback((id: string) => {
     if (id === 'increment') {
       console.log(
         'Incrementa state counter', counter
@@ -27,7 +53,7 @@ export default function App() {
     console.log(
       'non so cosa fare'
     );
-  }
+  }, [counter]);
 
   return (
     <View style={styles.container}>

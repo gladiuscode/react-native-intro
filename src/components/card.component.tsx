@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from "react";
+import React, {memo, PropsWithChildren} from "react";
 import {Text, View, TouchableOpacity, GestureResponderEvent} from "react-native";
 
 type Props = PropsWithChildren<{
@@ -7,7 +7,7 @@ type Props = PropsWithChildren<{
   label: string;
 }>
 
-const Card: React.FC<Props> = ({ id, label, onCardPress }) => {
+const Card = memo<Props>(({ id, label, onCardPress }) => {
 
   console.log('render card');
 
@@ -20,6 +20,6 @@ const Card: React.FC<Props> = ({ id, label, onCardPress }) => {
   >
     <Text>{label}</Text>
   </TouchableOpacity>);
-}
+});
 
 export default Card
