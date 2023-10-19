@@ -3,17 +3,12 @@ import {View, Text} from "react-native";
 
 interface Props {
   label: string;
-  info: { label: string };
 }
 
-const Title: React.FC<Props> = memo(({ label, info }) => {
-
-  console.log('render title');
-
+const Title: React.FC<Props> = memo(({ label }) => {
   return (
     <View>
       <Text>{label}</Text>
-      <Text>{info.label}</Text>
     </View>
   );
 });
