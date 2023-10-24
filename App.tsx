@@ -1,13 +1,16 @@
 import React from "react";
 import {View} from 'react-native';
 import ThemeProvider from "./src/providers/theme/theme.provider";
-import SettingsScreen from "./src/screens/settings/settings.screen";
+import {NavigationContainer} from "@react-navigation/native";
+import MainStack from "./src/navigation/main.stack";
 
 export default function App() {
   return (
     <View style={{ flex: 1, paddingTop: 50 }}>
       <ThemeProvider>
-        <SettingsScreen />
+        <NavigationContainer>
+          <MainStack />
+        </NavigationContainer>
       </ThemeProvider>
     </View>
   );
