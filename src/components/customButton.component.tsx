@@ -1,19 +1,20 @@
 import React, {memo} from "react";
-import {Text, TouchableOpacity} from "react-native";
+import {StyleProp, Text, TextStyle, TouchableOpacity, ViewStyle} from "react-native";
 
 interface Props {
+  style?: StyleProp<ViewStyle>;
   id: string;
   label: string;
   disabled?: boolean;
   onTouchPress: (id: string) => void;
 }
 
-const CustomButton = memo<Props>(({ id, label, disabled = false, onTouchPress }) => {
+const CustomButton = memo<Props>(({ style, id, label, disabled = false, onTouchPress }) => {
 
   const onPress = () => onTouchPress(id);
 
   return (
-    <TouchableOpacity disabled={disabled} onPress={onPress}>
+    <TouchableOpacity style={style} disabled={disabled} onPress={onPress}>
       <Text>{label}</Text>
     </TouchableOpacity>
   );
