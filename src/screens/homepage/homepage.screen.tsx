@@ -1,8 +1,9 @@
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 import Title from "../../components/title.component";
-import {useNavigation, useRoute} from "@react-navigation/native";
+import {useNavigation} from "@react-navigation/native";
 import CustomButton from "../../components/customButton.component";
+import {MainTabsScreen} from "../../navigation/bottomTabs/main.bottomTabs.types";
 import {MainScreen} from "../../navigation/main.types";
 
 const HomepageScreen = () => {
@@ -13,7 +14,7 @@ const HomepageScreen = () => {
 
   const onNavigateToSettings = (id: string) => {
     navigation.navigate(
-      MainScreen.settings,
+      MainTabsScreen.settings,
       { isAnonymousUser, fromLabel: 'Homepage' }
     );
   }

@@ -1,22 +1,17 @@
 import {ParamListBase} from "@react-navigation/native";
+import {MainBottomTabsParamList} from "./bottomTabs/main.bottomTabs.types";
 
 export enum MainScreen {
-  homepage = 'Homepage',
-  settings = 'Settings',
+  tabs = 'Tabs',
   articleDetail = 'ArticleDetail'
 }
 
-export interface MainParamList extends ParamListBase {
-  [MainScreen.homepage]: undefined;
-  [MainScreen.settings]: {
-    isAnonymousUser: boolean;
-    fromLabel: string;
-    hasNotification?: boolean;
-  };
+export interface MainStackParamList extends ParamListBase, MainBottomTabsParamList {
+  [MainScreen.tabs]: undefined;
 }
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends MainParamList {}
+    interface RootParamList extends MainStackParamList {}
   }
 }

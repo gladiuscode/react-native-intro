@@ -4,10 +4,10 @@ import Title from "../../components/title.component";
 import CustomButton from "../../components/customButton.component";
 import useSettings from "./useSettings.hook";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
-import {MainParamList, MainScreen} from "../../navigation/main.types";
+import {MainStackParamList, MainScreen} from "../../navigation/main.types";
 import {useNavigation, useRoute} from "@react-navigation/native";
 
-export type SettingsProps = NativeStackScreenProps<MainParamList, MainScreen.settings>;
+export type SettingsProps = NativeStackScreenProps<MainStackParamList, MainScreen.settings>;
 
 const SettingsScreen = () => {
   const {
